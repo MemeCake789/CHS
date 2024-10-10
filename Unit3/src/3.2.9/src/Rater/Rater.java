@@ -16,7 +16,9 @@ public class Rater
     // the new rating is no more than 5
     public void setRating(double newRating)
     {
-        
+        if (newRating <= 5) {
+            rating = newRating;
+        }
     }
     
     // Returns the rating of the company
@@ -29,9 +31,18 @@ public class Rater
     // based on their ratings
     public String toString()
     {
+        String result = "";
+        if (rating < 2) {
+            result = "Not Recommended Company " + name;
+        } else if (rating > 3.5) {
+            result = "Gold Star Company " + name;
+        } else {
+            result = "Well Rated Company " + name;
+        }
         // remember, once a return statement is
         // executed, the program LEAVES the method.
         // Nothing after the executed return statement is executed.
+        return result;
     }
 }
 
